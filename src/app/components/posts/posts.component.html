@@ -1,0 +1,40 @@
+<app-loader  *ngIf="loader"></app-loader>
+
+<div class="row" *ngIf="!loader">
+    <div
+        class="col-md-4 py-2"
+        *ngFor="let post of allPosts"
+    >
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title | slice:0:50 }} ...</h5>
+                <img
+                    class="img-fluid card-image py-1"
+                    src="{{post.image}}"
+                >
+                <p class="card-text"> <strong>Category</strong> : {{post.category}}</p>
+                <p class="card-text">
+                  <strong>Description</strong> : {{post.description|slice:0:80}}...
+                </p>
+                <p class="card-text"> <strong>Price</strong> : {{post.price |currency:'USD'}}</p>
+                <div class="d-flex justify-content-center">
+                    <button
+                        type="button"
+                        [routerLink]="['details',post.id]"
+                        class="btn btn-outline-success px-3"
+                    >
+                        Show Details
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+    *ngIf='errorMessage'
+    class='alert alert-danger'
+>
+    Error: {{ errorMessage }}
+</div>

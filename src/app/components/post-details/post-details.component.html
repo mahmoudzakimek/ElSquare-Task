@@ -1,0 +1,33 @@
+<app-loader  *ngIf="loader"></app-loader>
+
+
+<div class="box" *ngIf="!loader">
+  <div class="row">
+    <div class="col-md-5 col-sm-12">
+      <img src="{{data.image}}" alt="sas">
+    </div>
+    <div class="col-md-7 col-sm-12">
+      <div class="info w-100">
+        <ul class="list-unstyled">
+          <li><strong>title : </strong> {{data.title}}</li>
+          <li><strong>categories : </strong> {{data.category}}</li>
+          <li><strong>description : </strong> {{data.description}}</li>
+          <li class="w-100 d-flex justify-content-start align-items-center gap-1"><strong>rate : </strong> <app-stars-rating 
+            *ngIf="data.rating.rate"
+            [rating]="data.rating.rate"></app-stars-rating>
+        
+          </li>
+          <li><strong>count : </strong> {{data.rating.count}}</li>
+          <li><strong>price : </strong> {{data.price |currency :'USD'}} </li>
+        </ul>
+      </div>
+      <div class="container d-flex flex-end" ></div>
+      <!-- <button type="button" class="btn btn-info"  >Add to Card</button> -->
+      <button type="button" routerLink="" class="btn btn-info px-5" >Back</button>
+    </div>
+  </div>
+</div>
+<div *ngIf='errorMessage'
+     class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>
