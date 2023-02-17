@@ -9,7 +9,6 @@ import { slideInAnimation } from './app.animation';
   animations:[slideInAnimation]
 })
 export class AppComponent  {
-  loader = false;
   title = 'ElSquare-Task';
   constructor() {}
 

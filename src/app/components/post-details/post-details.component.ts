@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from 'src/app/Services/posts.service';
 import { IRate, IUser } from 'src/app/utils/IPosts';
 
@@ -16,7 +16,8 @@ export class PostDetailsComponent implements OnInit {
 
   constructor(
     private postsService: PostsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router :Router
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +39,12 @@ export class PostDetailsComponent implements OnInit {
       },
       error: (err) => (this.errorMessage = err),
     });
+  }
+  onBack(){
+    this.loader=true
+    this.router.navigate([''])
+    this.loader=false
+
   }
 }
 

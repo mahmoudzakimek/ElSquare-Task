@@ -12,18 +12,17 @@
           <li><strong>title : </strong> {{data.title}}</li>
           <li><strong>categories : </strong> {{data.category}}</li>
           <li><strong>description : </strong> {{data.description}}</li>
-          <li class="w-100 d-flex justify-content-start align-items-center gap-1"><strong>rate : </strong> <app-stars-rating 
+          <li class="w-100 d-flex justify-content-start align-items-center gap-1"><strong>rate : </strong> <app-stars-rating
             *ngIf="data.rating.rate"
             [rating]="data.rating.rate"></app-stars-rating>
-        
+
           </li>
           <li><strong>count : </strong> {{data.rating.count}}</li>
           <li><strong>price : </strong> {{data.price |currency :'USD'}} </li>
         </ul>
       </div>
       <div class="container d-flex flex-end" ></div>
-      <!-- <button type="button" class="btn btn-info"  >Add to Card</button> -->
-      <button type="button" routerLink="" class="btn btn-info px-5" >Back</button>
+      <button type="button" class="btn btn-info px-5"  (click)="onBack()">Back</button>
     </div>
   </div>
 </div>
